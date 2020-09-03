@@ -7,15 +7,16 @@
 <body>
     <form>
         <p>
-            <label for="grade">Grade</label><br>
-            <input type="text" id="grade" name="grade"><br>
-            <label for="percent">Percentage of mark</label><br>
-            <input type="text" id="percent" name="percent">
-            <button type="button"> Remove</button>
+<!--            <label for="mark">Mark</label><br>-->
+            <input type="text" id="mark" name="mark" placeholder="Mark">
+<!--            <label for="percent">Percentage of mark</label><br>-->
+            <input type="text" id="percent" name="percent" placeholder="Percentage of grade">
+            <button type="button" class="remove"> Remove</button><br>
         </p>
         <p>
-            <button type="button">Add</button>
+            <button type="button" class="add">Add</button>
         </p>
     </form>
+    <script src="{{ url_for('static', filename='scripts/script.js') }}"></script>
 </body>
 </html>
