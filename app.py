@@ -11,7 +11,7 @@ def home():
         num = len(req)//2
         marks = []
         for i in range(num):
-            temp = [req.get('mark'+str(i+1)), req.get('percent'+str(i+1))]
+            temp = [req.get('percent'+str(i+1)), req.get('mark'+str(i+1))]
             marks.append(temp)
         to_remove = []
         print(marks)
