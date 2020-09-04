@@ -3,20 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
     <form>
+        <div class="main">
+            <div class="in1">
         <p>
 <!--            <label for="mark">Mark</label><br>-->
             <input type="text" id="mark" name="mark" placeholder="Mark">
 <!--            <label for="percent">Percentage of mark</label><br>-->
             <input type="text" id="percent" name="percent" placeholder="Percentage of grade">
-            <button type="button" class="remove"> Remove</button><br>
+            <button type="button" class="remove" id="1"> Remove</button><br>
         </p>
+            </div>
+        </div>
         <p>
-            <button type="button" class="add">Add</button>
+            <button type="button" class="add" id="add">Add</button>
         </p>
     </form>
-    <script src="{{ url_for('static', filename='scripts/script.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/main.js') }}"></script>
 </body>
 </html>
