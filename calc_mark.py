@@ -1,15 +1,7 @@
-def get_marks():
-    marks = []
-    x = ''
-    while x != 'q':
-        x = str(input())
-        y = x.split(' ')
-        if x != 'q' and len(y) == 2:
-            marks.append(y)
-    return marks
-
-
 def calc(lst_marks):
+    if len(lst_marks) == 0:
+        return ["No valid entries found"]
+    out = []
     unknown = 100
     goal1 = 50
     goal2 = 85
@@ -25,24 +17,29 @@ def calc(lst_marks):
             curr += round(perc*value, 3)
         else:
             curr += round(perc/100*value, 3)
-    print(f'Current mark is {round(curr, 3)}% out of {percentage}%')
-    print(f'Which is {round(curr*100/percentage, 3)}%')
+    out.append(f'Current mark is {round(curr, 3)}% out of {percentage}%.')
+    out.append(f'Which is {round(curr*100/percentage, 3)}%.')
     if unknown > 0:
-        print(f'{round(unknown, 3)}% of mark not yet recorded')
+        out.append(f'{round(unknown, 3)}% of mark not yet recorded.')
         calc1 = goal1 - curr
         if calc1 < 0:
-            print(f'Already reaching {goal1}%')
+            out.append(f'Already reaching {goal1}%.')
         else:
-            print(f'To get {goal1}%, {round(calc1*100/unknown, 3)}% is needed of the remaining {unknown}%')
+            out.append(f'To get {goal1}%, {round(calc1*100/unknown, 3)}% is needed of the remaining {unknown}%.')
         calc2 = goal2 - curr
         if calc2 < 0:
-            print(f'Already reaching {goal2}%')
+            out.append(f'Already reaching {goal2}%.')
         else:
-            print(f'To get {goal2}%, {round(calc2*100/unknown, 3)}% is needed of the remaining {unknown}%')
+            out.append(f'To get {goal2}%, {round(calc2*100/unknown, 3)}% is needed of the remaining {unknown}%.')
     else:
-        print('All 100% has been recorded')
+        out.append('All 100% has been recorded .')
+    return out
 
 
-m = get_marks()
-# m = []
-calc(m)
+def is_float(num):
+    try:
+        float(num)
+    except ValueError:
+        return False
+    else:
+        return True

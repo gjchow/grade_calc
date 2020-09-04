@@ -2,24 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Grade Calculator</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
-    <form>
+    <form action="" method="post">
         <div class="main">
             <div class="in1">
-        <p>
-<!--            <label for="mark">Mark</label><br>-->
-            <input type="text" id="mark" name="mark" placeholder="Mark">
-<!--            <label for="percent">Percentage of mark</label><br>-->
-            <input type="text" id="percent" name="percent" placeholder="Percentage of grade">
-            <button type="button" class="remove" id="1"> Remove</button><br>
-        </p>
+                <p>
+                    <input type="text" id="mark1" name="mark1" placeholder="Mark"><input type="text" id="percent1" name="percent1" placeholder="Percentage of grade"><br>
+                </p>
             </div>
         </div>
         <p>
             <button type="button" class="add" id="add">Add</button>
+            <button type="button" class="remove" id="remove">Remove</button>
+            <button type="submit" class="submit" id="submit">Submit</button>
+        </p>
+        <p>
+            {% if info %}
+                <text>{% for inf in info %}
+                    {{inf}}<br>
+                {% endfor %}</text>
+            {% endif %}
         </p>
     </form>
     <script src="{{ url_for('static', filename='scripts/main.js') }}"></script>
