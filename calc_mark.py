@@ -41,5 +41,4 @@ def is_float(num):
         float(num)
     except ValueError:
         return False
-    else:
-        return True
+    return True
