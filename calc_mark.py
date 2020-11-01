@@ -10,13 +10,13 @@ def calc(lst_marks):
     for mark in lst_marks:
         perc, value = mark
         perc = round(float(perc), 3)
-        value = round(float(value), 3)
+        if '/' in value:
+            value = round(float(value), 3)
+        else:
+            value = round(float(value)/100, 3)
         percentage += perc
         unknown -= perc
-        if value < 1:
-            curr += round(perc*value, 3)
-        else:
-            curr += round(perc/100*value, 3)
+        curr += round(perc*value, 3)
     out.append(f'Current mark is {round(curr, 3)}% out of {percentage}%.')
     out.append(f'Which is {round(curr*100/percentage, 3)}%.')
     if unknown > 0:

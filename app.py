@@ -14,7 +14,6 @@ def home():
             temp = [req.get('percent'+str(i+1)), req.get('mark'+str(i+1))]
             marks.append(temp)
         to_remove = []
-        print(marks)
         for mark in marks:
             if mark[0] == '' or mark[1] == '':
                 to_remove.insert(0, marks.index(mark))
