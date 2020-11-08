@@ -18,6 +18,7 @@ def home():
             if mark[0] == '' or mark[1] == '':
                 to_remove.insert(0, marks.index(mark))
             elif not is_float(mark[0]) or not is_float(mark[1]):
+                a = is_float(mark[0]), is_float(mark[1])
                 to_remove.insert(0, marks.index(mark))
         for i in to_remove:
             marks.pop(i)

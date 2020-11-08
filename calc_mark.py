@@ -1,4 +1,7 @@
-def calc(lst_marks):
+from typing import Any, List
+
+
+def calc(lst_marks: List) -> List[str]:
     if len(lst_marks) == 0:
         return ["No valid entries found"]
     out = []
@@ -11,6 +14,8 @@ def calc(lst_marks):
         perc, value = mark
         perc = round(float(perc), 3)
         if '/' in value:
+            value = value.split('/')
+            value = float(value[0])/float(value[1])
             value = round(float(value), 3)
         else:
             value = round(float(value)/100, 3)
@@ -36,9 +41,17 @@ def calc(lst_marks):
     return out
 
 
-def is_float(num):
+def is_float(num: Any) -> bool:
     try:
         float(num)
     except ValueError:
-        return False
+        if '/' in num:
+            try:
+                num = num.split('/')
+                if len(num) != 2:
+                    return False
+                else:
+                    float(float(num[0])/float(num[1]))
+            except ValueError:
+                return False
     return True
